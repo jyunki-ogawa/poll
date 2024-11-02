@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>topic-list-item</title>
+</head>
+<body>
+
+    <li class="topic row bg-white shadow-sm mb-3 rounded p-3" th:fragment="topic-list-item">
+        <div class="col-md d-flex align-items-center">
+            <h2 class="mb-2 mb-md-0">
+<!--                ステータス判定処理-->
+                <div th:if="${withStatus}">
+                    <span class="badge mr-1 align-bottom " th:text="${topic.published == 1}? '公開' : '非公開'" th:classappend="${topic.published} ? badge-primary : badge-danger">公開非公開のラベルを表示</span>
+                </div>
+<!--                urlとタイトルの設定-->
+                <a class="text-body" th:href="@{${topicURL} + '?topic_id=' + ${topic.id}}" th:text="${topic.title}">トッピクタイトルを表示</a>
+            </h2>
+        </div>
+        <div class="col-auto mx-auto">
+            <div class="text-center row">
+                <div class="view col-auto min-w-100">
+                    <div class="h1 mb-0" th:text="${topic.views}">表示数を表示</div>
+                    <div class="mb-0">Views</div>
+                </div>
+                <div class="likes-green col-auto min-w-100">
+                    <div class="h1 mb-0" th:text="${topic.likes}">賛成数を表示</div>
+                    <div class="mb-0">賛成</div>
+                </div>
+                <div class="dislikes-red col-auto min-w-100">
+                    <div class="h1 mb-0" th:text="${topic.dislikes}">反対数を表示</div>
+                    <div class="mb-0">反対</div>
+                </div>
+            </div>
+        </div>
+    </li>
+</body>
+</html>

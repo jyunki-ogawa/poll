@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <title>過去の投稿一覧</title>
+</head>
+<body>
+
+    <div th:replace="partials/header :: header">text</div>
+<!--    投稿が存在する場合-->
+    <div th:unless="${topicList} == null">
+        <ul class="container">
+            <h1 class="h2 mb-3">過去の投稿</h1>
+<!--            topicListをループで表示-->
+            <div th:each="topic : ${topicList}">
+                <div th:replace="partials/topic-list-item :: topic-list-item"></div>
+            </div>
+        </ul>
+    </div>
+<!--    投稿が存在しない場合-->
+    <div th:if="${topicList} == null">
+        <div class="alert alert-primary">トピックを投稿してみよう。</div>
+    </div>
+</body>
+</html>

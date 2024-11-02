@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>メッセージ表示用</title>
+</head>
+<body>
+  <div th:unless="msgsWithTypeList == null" th:fragment="msg">
+    <div class="messages">
+      <div th:each="msgsWithType : ${msgsWithTypeList}">
+        <div th:each="msg : ${msgsWithType.value}">
+          <div th:text="${msg}" class="message__text" th:classappend="${msgsWithType.key == 'info'} ? alert-info : alert-danger"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

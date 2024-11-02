@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="partials/msg :: msg"></div>
+    <header class="container my-2" th:fragment="header">
+            <nav class="row align-items-center py-2">
+                <a th:href="@{/}" class="col-md d-flex align-items-center mb-3 mb-md-0">
+                    <img width="50" class="mr-2" th:src="@{/images/logo.svg}" alt="みんなのアンケート　サイトロゴ">
+                    <span class="h2 font-weight-bold mb-0">みんなのアンケート</span>
+                </a>
+                <div class="col-md-auto">
+                    <div sec:authorize="isAuthenticated()">
+                        <a th:href="@{/topic/create}" class="btn btn-primary mr-2">投稿</a>
+                        <a th:href="@{/topic/archive}" class="mr-2">過去の投稿</a>
+                        <form th:action="@{/logout}" method="post" style="display: inline" class="mr-2">
+                            <input type="submit" value="ログアウト" class="input_like_link"/>
+                        </form>
+                    </div>
+                    <div sec:authorize="!isAuthenticated()">
+                        <a th:href="@{/register}" class="btn btn-primary mr-2">登録</a>
+                        <a th:href="@{/login}">ログイン</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+</body>
+</html>

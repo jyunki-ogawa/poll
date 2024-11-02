@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"　xmlns:sec="http://www.thymeleaf.org/extras/springsecurity">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <title>ログイン</title>
+</head>
+<body>
+<!--  <div sec:authorize="hasRole('ADMIN')">ログイン中です</div>-->
+<!--  <div th:if="${failureMessage!=null}" th:text="${failureMessage}"></div>-->
+<!--  <form th:action="@{/login}" method="post">-->
+<!--    <table>-->
+<!--      <tr>-->
+<!--        <th>ID</th>-->
+<!--        <td><input type="text" name="username"/></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <th>PASSWORD</th>-->
+<!--        <td><input type="password" name="password"/></td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--    <input type="submit" value="ログイン"/>-->
+<!--  </form>-->
+
+<!--以下の記述で成功している。-->
+<!--    <div sec:authorize="isAuthenticated()">-->
+<!--        ログイン中です。-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <form th:action="@{/logout}" method="post">-->
+<!--            <button class="logout-button">-->
+<!--                ログアウト-->
+<!--            </button>-->
+<!--        </form>-->
+<!--    </div>-->
+    <div th:replace="partials/msg :: msg"></div>
+    <h1 class="sr-only">ログイン</h1>
+    <div th:if="${failureMessage!=null}" th:text="${failureMessage}"></div>
+    <div class="mt-5">
+        <div class="text-center mb-4">
+          <img width="65" src="images/logo.svg" alt="みんなのアンケート　サイトロゴ">
+        </div>
+        <div class="login-form bg-white p-4 shadow-sm mx-auto rounded">
+          <form class="validate-form" th:action="@{/login}" method="POST" novalidate autocomplete="off">
+            <div class="form-group">
+              <label for="username">ユーザーID</label>
+        <!--          <input id="id" type="text" name="id" class="form-control validate-target" minlength="4" required maxlength="10" pattern="[a-zA-Z0-9]+" autofocus />-->
+              <input id="username" type="text" name="username" class="form-control validate-target" minlength="4" required maxlength="10" pattern="[a-zA-Z0-9]+" autofocus/>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="form-group">
+              <label for="password">パスワード</label>
+        <!--          <input id="pwd" type="password" name="pwd" minlength="4" required tabindex="2" pattern="[a-zA-Z0-9]+" class="form-control validate-target" />-->
+              <input id="password" type="password" name="password" minlength="4" required tabindex="2" pattern="[a-zA-Z0-9]+" class="form-control validate-target"/>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <a href="">アカウント登録</a>
+              </div>
+              <div>
+        <!--            <input type="submit" value="ログイン" class="btn btn-primary shadow-sm">-->
+                <input type="submit" value="ログイン" class="btn btn-primary shadow-sm"/>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+</body>
+</html>

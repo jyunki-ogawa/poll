@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <title>register</title>
+</head>
+<body>
+    <h1 class="sr-only">アカウント登録</h1>
+    <div class="mt-5">
+        <div class="text-center mb-4">
+            <img width="65" src="images/logo.svg" alt="みんなのアンケート　サイトロゴ">
+        </div>
+        <div class="login-form bg-white p-4 shadow-sm mx-auto rounded">
+            <form class="validate-form" action="/register" method="POST" novalidate autocomplete="off">
+                <div class="form-group">
+                    <label for="username">ユーザーID</label>
+                    <input id="username" type="text" name="username" class="form-control validate-target" minlength="4" required maxlength="10" pattern="[a-zA-Z0-9]+" autofocus />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input id="password" type="password" name="password" minlength="4" required tabindex="2" pattern="[a-zA-Z0-9]+" class="form-control validate-target" />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="nickname">ニックネーム</label>
+                    <input id="nickname" type="text" name="nickname" class="form-control validate-target" required maxlength="10">
+                    <div class="invalid-feedback"></div>
+                </div>
+                <input name="role" value="USER" type="hidden"/>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <a th:href="@{/login}">ログインへ</a>
+                    </div>
+                    <div>
+                        <input type="submit" value="登録" class="btn btn-primary shadow-sm">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!--    <form action="/register"  method="POST">-->
+<!--&lt;!&ndash;            <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input name="id" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <diV>-->
+<!--                <input name="username"/>-->
+<!--            </diV>-->
+<!--            <diV>-->
+<!--                <input name="nickname"/>-->
+<!--            </diV>-->
+<!--            <div>-->
+<!--                <input name="role" value="USER" type="hidden"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <input name="password"/>-->
+<!--            </div>-->
+<!--            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+<!--            <button type="submit">登録</button>-->
+<!--        </form>-->
+
+
+</body>
+</html>
