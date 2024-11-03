@@ -60,7 +60,7 @@ public class HomeController {
         HashMap<String, ArrayList<String>> msgsWithType = msg.getSessionAndFlush(Msg.SESSION_NAME);
         model.addAttribute("msgsWithType", msgsWithType);
 
-        return "/home";
+        return "home";
 
     }
 
