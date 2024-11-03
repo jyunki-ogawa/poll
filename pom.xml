@@ -14,7 +14,7 @@
 	<name>Poll</name>
 	<description>アンケートの作成と投票ができるアプリケーション</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
