@@ -12,7 +12,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     public JdbcUserRepository repository;
 
-
     @Override    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //リポジトリのところのメソッドは作る必要がある。（これはJPAでの実装）
         UserModel user = repository.findByUsername(username);

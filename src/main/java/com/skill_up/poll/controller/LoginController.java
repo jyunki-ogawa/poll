@@ -28,7 +28,7 @@ public class LoginController {
         Msg msg = new Msg(session);
         HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
         model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-        return "/login";
+        return "login";
 
     }
 

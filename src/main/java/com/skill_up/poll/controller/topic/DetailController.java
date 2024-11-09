@@ -72,7 +72,7 @@ public class DetailController {
         HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
         model.addAttribute("msgsWithTypeList", msgsWithTypeList);
 
-        return "/topic/detail";
+        return "topic/detail";
 
     }
 

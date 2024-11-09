@@ -31,7 +31,7 @@ public class RegisterController {
 
     @GetMapping("/register")
     String register() {
-        return "/register";
+        return "register";
     }
 
     @PostMapping("/register")

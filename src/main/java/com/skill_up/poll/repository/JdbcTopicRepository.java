@@ -52,38 +52,6 @@ public class JdbcTopicRepository {
 
     }
 
-//    static class TopicRowMapper implements RowMapper<TopicModel> {
-//
-//        public TopicModel mapRow(ResultSet rs, int rowNum) throws SQLException {
-//
-//            int id = rs.getInt("t.id");
-//            String title = rs.getString("t.title");
-//            int published = rs.getInt("t.published");
-//            int views = rs.getInt("t.views");
-//            int likes = rs.getInt("t.likes");
-//            int dislikes = rs.getInt("t.dislikes");
-//            String user_id = rs.getString("t.user_id");
-//            int del_flg = rs.getInt("t.del_flg");
-//
-//            TopicModel topicModel = new TopicModel(id, title, published, views,likes, dislikes,user_id,del_flg);
-//
-//            String userModel_id = "";
-//            String username = "";
-//            String nickname = rs.getString("u.nickname");;
-//            String password = "";
-//            String role = "";
-//            int userModel_del_flg = 1;
-//            String updated_by = "";
-//            String updated_at = "";
-//            UserModel userModel = new UserModel(userModel_id, username, nickname,password, role, userModel_del_flg, updated_by, updated_at);
-//            topicModel.setUserModel(userModel);
-//
-//            return topicModel;
-//        }
-//
-//    }
-
-
     public TopicModelWithNickname fetchById(int topicId) {
 
         TopicModelWithNickname topic;

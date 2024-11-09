@@ -40,7 +40,7 @@ public class ArchiveController {
         model.addAttribute("topicList", topicList);
         model.addAttribute("topicURL", topicURL);
         model.addAttribute("withStatus", withStatus);
-        return "/topic/archive";
+        return "topic/archive";
 
     }
 

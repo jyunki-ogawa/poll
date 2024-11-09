@@ -62,7 +62,7 @@ public class EditController {
         model.addAttribute("isEdit", isEdit);
         model.addAttribute("url", url);
 
-        return "/topic/edit";
+        return "topic/edit";
 
 
     }
@@ -100,7 +100,7 @@ public class EditController {
             msg.push(Msg.INFO, "トピックの更新に失敗しました。");
             HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
             model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "/topic/edit?topic_id=" + topicId;
+            return "topic/edit?topic_id=" + topicId;
         }
 
         try {
@@ -115,7 +115,7 @@ public class EditController {
             msg.push(Msg.INFO, "トピックの更新に失敗しました。");
             HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
             model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "/topic/edit?topic_id=" + topicId;
+            return "topic/edit?topic_id=" + topicId;
 
         }
 

@@ -10,33 +10,6 @@
     <title>ログイン</title>
 </head>
 <body>
-<!--  <div sec:authorize="hasRole('ADMIN')">ログイン中です</div>-->
-<!--  <div th:if="${failureMessage!=null}" th:text="${failureMessage}"></div>-->
-<!--  <form th:action="@{/login}" method="post">-->
-<!--    <table>-->
-<!--      <tr>-->
-<!--        <th>ID</th>-->
-<!--        <td><input type="text" name="username"/></td>-->
-<!--      </tr>-->
-<!--      <tr>-->
-<!--        <th>PASSWORD</th>-->
-<!--        <td><input type="password" name="password"/></td>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--    <input type="submit" value="ログイン"/>-->
-<!--  </form>-->
-
-<!--以下の記述で成功している。-->
-<!--    <div sec:authorize="isAuthenticated()">-->
-<!--        ログイン中です。-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <form th:action="@{/logout}" method="post">-->
-<!--            <button class="logout-button">-->
-<!--                ログアウト-->
-<!--            </button>-->
-<!--        </form>-->
-<!--    </div>-->
     <div th:replace="partials/msg :: msg"></div>
     <h1 class="sr-only">ログイン</h1>
     <div th:if="${failureMessage!=null}" th:text="${failureMessage}"></div>
