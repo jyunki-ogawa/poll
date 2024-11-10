@@ -92,7 +92,7 @@ public class JdbcTopicRepository {
 
         }
 
-        Integer topicCount = jdbcTemplate.queryForObject("select count(1) from pollapp.topics t where t.id = ? and t.user_id = ? and t.del_flg != 1;", Integer.class, topicId, userId);
+        Integer topicCount = jdbcTemplate.queryForObject("select count(1) from topics t where t.id = ? and t.user_id = ? and t.del_flg != 1;", Integer.class, topicId, userId);
         return topicCount;
 
     }
