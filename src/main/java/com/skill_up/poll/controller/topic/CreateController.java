@@ -73,7 +73,7 @@ public class CreateController {
             msg.push(Msg.INFO, "トピックの登録に失敗しました。");
             HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
             model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "topic/create";
+            return "redirect:/topic/edit";
         }
 
         try {
@@ -87,7 +87,7 @@ public class CreateController {
             msg.push(Msg.INFO, "トピックの登録に失敗しました。");
             HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
             model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "topic/create";
+            return "redirect:/topic/edit";
 
         }
 
