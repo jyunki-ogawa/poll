@@ -98,10 +98,15 @@ public class DetailController {
         if (commentModel.validateTopicId(topicId)
                 * commentModel.validateAgree(agree)
                 * commentModel.validateBody(body) == 0) {
+
             //コメントの更新に失敗しました。
-            msg.push(Msg.INFO, "コメントの更新に失敗しました。");
+            msg.push(Msg.INFO, "コメントの登録に失敗しました。");
+
+            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
+            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
 
             redirectAttributes.addAttribute("topic_id", topicId);
+
             return "redirect:/topic/detail";
         }
 
@@ -120,6 +125,7 @@ public class DetailController {
         } catch(DataAccessException e) {
 
             //エラーメッセージを表示
+            msg.push(Msg.INFO, "コメントの登録に失敗しました。");
             msg.push(Msg.DEBUG, e.getMessage());
             result = 0;
 
@@ -137,6 +143,9 @@ public class DetailController {
             }
 
         }
+
+        HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
+        model.addAttribute("msgsWithTypeList", msgsWithTypeList);
 
         redirectAttributes.addAttribute("topic_id", topicId);
         return "redirect:/topic/detail";
