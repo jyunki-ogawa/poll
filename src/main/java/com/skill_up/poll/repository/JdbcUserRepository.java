@@ -4,6 +4,7 @@ import com.skill_up.poll.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,13 @@ public class JdbcUserRepository {
 
     }
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public void insert(UserModel user) {
 
         jdbcTemplate.update("INSERT INTO users(password, nickname,username, role) values ( ?, ?, ?, ?)",
-                user.getPassword(),
+                passwordEncoder.encode(user.getPassword()),
                 user.getNickname(),
                 user.getUsername(),
                 user.getRole()
