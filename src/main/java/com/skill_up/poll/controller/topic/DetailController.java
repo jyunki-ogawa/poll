@@ -144,9 +144,6 @@ public class DetailController {
 
         }
 
-        HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-        model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-
         redirectAttributes.addAttribute("topic_id", topicId);
         return "redirect:/topic/detail";
 
