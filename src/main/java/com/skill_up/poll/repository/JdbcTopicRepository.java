@@ -132,7 +132,7 @@ public class JdbcTopicRepository {
 
         }
 
-        if(agree == 0) {
+        if(agree == 1) {
 
             result = jdbcTemplate.update("update topics set likes = likes + 1 where id = ?",
                     topicId
