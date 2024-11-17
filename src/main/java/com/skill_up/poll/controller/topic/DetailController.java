@@ -99,8 +99,7 @@ public class DetailController {
                 * commentModel.validateAgree(agree)
                 * commentModel.validateBody(body) == 0) {
 
-            //コメントの更新に失敗しました。
-            msg.push(Msg.INFO, "コメントの登録に失敗しました。");
+            msg.push(Msg.INFO, "回答に失敗しました。");
 
             HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
             model.addAttribute("msgsWithTypeList", msgsWithTypeList);
@@ -125,7 +124,7 @@ public class DetailController {
         } catch(DataAccessException e) {
 
             //エラーメッセージを表示
-            msg.push(Msg.INFO, "コメントの登録に失敗しました。");
+            msg.push(Msg.INFO, "回答に失敗しました。");
             msg.push(Msg.DEBUG, e.getMessage());
             result = 0;
 
@@ -133,13 +132,11 @@ public class DetailController {
 
             if(result == 1) {
 
-                //コメントの登録に成功しました
-                msg.push(Msg.INFO, "コメントの登録に成功しました。");
+                msg.push(Msg.INFO, "回答に成功しました。");
 
             } else {
 
-                //コメントの登録に失敗しました。
-                msg.push(Msg.INFO, "コメントの登録に失敗しました。");
+                msg.push(Msg.INFO, "回答に失敗しました。");
             }
 
         }
