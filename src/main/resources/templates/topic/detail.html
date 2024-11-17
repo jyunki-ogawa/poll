@@ -20,7 +20,7 @@
                 <div th:each="comment : ${commentList}">
                     <li class="bg-white shadow-sm mb-3 rounded p-3">
                         <h2 class="h4 mb-2">
-                            <span class="badge mr-1 align-bottom" th:classappend="${comment.agree} ? badge-success : badge-danger" th:text="${comment.agree}? '賛成' : '反対'"></span>
+                            <span class="badge mr-1 align-bottom" th:classappend="${comment.agree = '1'} ? badge-success : badge-danger" th:text="${comment.agree= '1'}? '賛成' : '反対'"></span>
                             <span th:text="${comment.body}"></span>
                         </h2>
                         <span>
