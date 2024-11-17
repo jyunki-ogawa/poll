@@ -131,7 +131,7 @@ public class DetailController {
 
         } finally {
 
-            if(result == 0) {
+            if(result == 1) {
 
                 //コメントの登録に成功しました
                 msg.push(Msg.INFO, "コメントの登録に成功しました。");
