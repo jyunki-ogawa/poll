@@ -15,7 +15,9 @@
     <div th:if="${failureMessage!=null}" th:text="${failureMessage}"></div>
     <div class="mt-5">
         <div class="text-center mb-4">
-          <img width="65" src="images/logo.svg" alt="みんなのアンケート　サイトロゴ">
+            <a th:href="@{/}">
+                <img width="65" src="images/logo.svg" alt="みんなのアンケート　サイトロゴ">
+            </a>
         </div>
         <div class="login-form bg-white p-4 shadow-sm mx-auto rounded">
           <form class="validate-form" th:action="@{/login}" method="POST" novalidate autocomplete="off">
