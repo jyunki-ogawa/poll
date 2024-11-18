@@ -7,7 +7,7 @@
     <title>過去の投稿一覧</title>
 </head>
 <body>
-
+    <div th:replace="partials/msg :: msg"></div>
     <div th:replace="partials/header :: header">text</div>
 <!--    投稿が存在する場合-->
     <div th:unless="${topicList} == null">

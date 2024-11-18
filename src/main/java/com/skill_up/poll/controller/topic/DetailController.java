@@ -101,9 +101,6 @@ public class DetailController {
 
             msg.push(Msg.INFO, "回答に失敗しました。");
 
-            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-
             redirectAttributes.addAttribute("topic_id", topicId);
 
             return "redirect:/topic/detail";

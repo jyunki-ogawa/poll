@@ -71,8 +71,6 @@ public class CreateController {
                 * topicModel.validateTitle(title)
                 * topicModel.validatePublished(published) == 0) {
             msg.push(Msg.INFO, "トピックの登録に失敗しました。");
-            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
             return "redirect:/topic/edit";
         }
 
@@ -85,14 +83,11 @@ public class CreateController {
 
             //トピックの登録に失敗しました。
             msg.push(Msg.INFO, "トピックの登録に失敗しました。");
-            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
+
             return "redirect:/topic/edit";
 
         }
 
-        HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-        model.addAttribute("msgsWithTypeList", msgsWithTypeList);
         return "redirect:/topic/archive";
 
     }

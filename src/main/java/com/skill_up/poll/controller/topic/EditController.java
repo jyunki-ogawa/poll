@@ -40,6 +40,7 @@ public class EditController {
 
         String userId;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Msg msg = new Msg(session);
 
         if (principal instanceof UserDetails) {
             userId = ((UserDetails)principal).getUsername();
@@ -61,6 +62,9 @@ public class EditController {
         model.addAttribute("topic", topic);
         model.addAttribute("isEdit", isEdit);
         model.addAttribute("url", url);
+
+        HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
+        model.addAttribute("msgsWithTypeList", msgsWithTypeList);
 
         return "topic/edit";
 
@@ -98,9 +102,7 @@ public class EditController {
                 * topicModel.validatePublished(published) == 0) {
             //トピックの更新に失敗しました。
             msg.push(Msg.INFO, "トピックの更新に失敗しました。");
-            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "topic/edit?topic_id=" + topicId;
+            return "redirect:/topic/edit?topic_id=" + topicId;
         }
 
         try {
@@ -113,9 +115,7 @@ public class EditController {
 
             //トピックの更新に失敗しました。
             msg.push(Msg.INFO, "トピックの更新に失敗しました。");
-            HashMap<String, ArrayList<String>> msgsWithTypeList = msg.getSessionAndFlush(Msg.SESSION_NAME);
-            model.addAttribute("msgsWithTypeList", msgsWithTypeList);
-            return "topic/edit?topic_id=" + topicId;
+            return "redirect:/topic/edit?topic_id=" + topicId;
 
         }
 
