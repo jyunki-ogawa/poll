@@ -23,16 +23,14 @@ public class JdbcUserRepository {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    public int insert(UserModel user) {
+    public void insert(UserModel user) {
 
-        int result = jdbcTemplate.update("INSERT INTO users(password, nickname,username, role) values ( ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO users(password, nickname,username, role) values ( ?, ?, ?, ?)",
                 passwordEncoder.encode(user.getPassword()),
                 user.getNickname(),
                 user.getUsername(),
                 user.getRole()
             );
-
-        return  result;
     }
 
     //UserDetailsServiceのloadUserByUsernameで仕様されることを想定

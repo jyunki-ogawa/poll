@@ -12,6 +12,7 @@ import com.skill_up.poll.libs.Msg;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -57,14 +58,18 @@ public class RegisterController {
         user.setNickname(nickname);
         user.setRole(role);
         user.setPassword(password);
-        int result = RegistService.regist(user);
 
         Msg msg = new Msg(session);
 
-        if (result < 1) {
+        try {
+
+            RegistService.regist(user);
+
+        } catch (Exception e) {
 
             msg.push(Msg.INFO, "ユーザー登録に失敗しました");
             return "redirect:/";
+
         }
 
         msg.push(Msg.INFO, user.getNickname() + "さん、ようこそ。");
