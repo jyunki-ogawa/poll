@@ -57,9 +57,16 @@ public class RegisterController {
         user.setNickname(nickname);
         user.setRole(role);
         user.setPassword(password);
-        RegistService.regist(user);
+        int result = RegistService.regist(user);
 
         Msg msg = new Msg(session);
+
+        if (result < 1) {
+
+            msg.push(Msg.INFO, "ユーザー登録に失敗しました");
+            return "redirect:/";
+        }
+
         msg.push(Msg.INFO, user.getNickname() + "さん、ようこそ。");
         return "redirect:/login";
     }

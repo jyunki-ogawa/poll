@@ -11,9 +11,11 @@ public class RegistService {
     @Autowired
     private  JdbcUserRepository jdbcUserRepository;
 
-    public void regist(UserModel user){
+    public int regist(UserModel user){
 
-        jdbcUserRepository.insert(user);
+        int result = jdbcUserRepository.insert(user);;
+
+        return result;
 
     }
 
