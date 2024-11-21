@@ -64,7 +64,7 @@ public class RegisterController {
         if (result < 1) {
 
             msg.push(Msg.INFO, "ユーザー登録に失敗しました");
-            return "redirect:";
+            return "redirect:/";
         }
 
         msg.push(Msg.INFO, user.getNickname() + "さん、ようこそ。");
